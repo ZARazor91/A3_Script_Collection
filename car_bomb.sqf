@@ -1,7 +1,7 @@
 // =====================================================
-//  Car Bomb Script  
-//  Version: 1.0
-//  Author: Bier AIG Razor (zarazor91@hotmail.de)
+//  Car Bomb Script
+//  Version: 1.1
+//  Author: ZARazor91 (zarazor91@hotmail.de)
 // -----------------------------------------------------
 //  Required parameters:
 //    vehicle  = Vehicle with the bomb
@@ -15,14 +15,14 @@
 
 _veh = _this select 0;
 _tim = _this select 1;
-_num = _tim;
 
-WaitUntil {player in (crew _veh)};
-While {_num != 0} do {
-	If (player in (crew _veh) && "text" in _this) then {hintSilent (str _num)};
-	_num = _num - 1;
+WaitUntil {count (crew _veh) > 0};
+While {_tim != 0} do {
+	If ("text" in _this) then {
+		{hintSilent (str _tim)} forEach (crew _veh);
+	};
+	_tim = _tim - 1;
 	Sleep 1;
 };
 
-If (player in (crew _veh) && "text" in _this) then {hintSilent "0"};
 If (isServer && alive _veh) then {"Bo_GBU12_LGB" createVehicle getPos _veh};
