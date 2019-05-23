@@ -1,6 +1,6 @@
 // =====================================================
-//  Car Bomb Script
-//  Version: 1.1
+//  Car Bomb Script  
+//  Version: 1.01
 //  Author: ZARazor91 (zarazor91@hotmail.de)
 // -----------------------------------------------------
 //  Required parameters:
@@ -13,16 +13,15 @@
 //    (e.g. nul=[this,30,"text"] execVM "car_bomb.sqf")
 // =====================================================
 
-_veh = _this select 0;
-_tim = _this select 1;
+_vehicle = _this select 0;
+_timer = _this select 1;
 
-WaitUntil {count (crew _veh) > 0};
-While {_tim != 0} do {
-	If ("text" in _this) then {
-		{hintSilent (str _tim)} forEach (crew _veh);
-	};
-	_tim = _tim - 1;
+WaitUntil {player in (crew _vehicle) && isEngineOn _vehicle};
+While {_timer != 0} do {
+	If (player in (crew _vehicle) && "text" in _this) then {hintSilent (str _timer)};
+	_timer = _timer - 1;
 	Sleep 1;
 };
 
-If (isServer && alive _veh) then {"Bo_GBU12_LGB" createVehicle getPos _veh};
+If (player in (crew _vehicle) && "text" in _this) then {hintSilent "0"};
+If (isServer && alive _vehicle) then {"Bo_GBU12_LGB" createVehicle getPos _vehicle};
