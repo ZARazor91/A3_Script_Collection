@@ -11,7 +11,7 @@
 //    start position   = Start position for the helicopter.
 //    target position  = Target position for the helicopter (player is possible too).
 //    end position     = End position for the helicopter.
-//    (e.g. nul = ["B_Heli_Transport_03_F","B_MRAP_01_F","B_Pilot_F",70,start,target,end] execVM "hts_script.sqf")
+//    (e.g. scr = ["B_Heli_Transport_03_F","B_MRAP_01_F","B_Pilot_F",70,start,target,end] execVM "hts_script.sqf")
 // ================================================================================================
 
 private ["_heli","_veh","_pil","_hei","_sta","_pla","_end","_lead"];
