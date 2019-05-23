@@ -14,7 +14,7 @@
 //    (e.g. scr = ["B_Heli_Transport_03_F","B_MRAP_01_F","B_Pilot_F",70,start,target,end] execVM "hts_script.sqf")
 // ================================================================================================
 
-private ["_heli","_veh","_pil","_hei","_sta","_pla","_end","_lead"];
+private ["_heli","_veh","_pil","_hei","_sta","_pla","_end"];
 
 If (!isServer) exitWith {};
 
