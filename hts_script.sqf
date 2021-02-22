@@ -16,32 +16,32 @@
 
 private ["_heli","_veh","_pil","_hei","_sta","_pla","_end"];
 
-If (!isServer) exitWith {};
+If (!isServer) then {
+  _heli = _this select 0;
+  _veh = _this select 1;
+  _pil = _this select 2;
+  _hei = _this select 3;
+  _sta = _this select 4;
+  _pla = _this select 5;
+  _end = _this select 6;
 
-_heli = _this select 0;
-_veh = _this select 1;
-_pil = _this select 2;
-_hei = _this select 3;
-_sta = _this select 4;
-_pla = _this select 5;
-_end = _this select 6;
+  _helo = createvehicle [_heli,[(getpos _sta select 0),(getpos _sta select 1),_hei], [], 0, "FLY"];
+  _helo setdir getdir _sta;
+  _cargo = _veh createvehicle getpos _helo;
+  _grp = createGroup WEST;
+  _pilot = _pil createUnit [[0,0,0],_grp,"this moveinDriver _helo"];
+  _helo flyinheight _hei;
 
-_helo = createvehicle [_heli,[(getpos _sta select 0),(getpos _sta select 1),_hei], [], 0, "FLY"];
-_helo setdir getdir _sta;
-_cargo = _veh createvehicle getpos _helo;
-_grp = createGroup WEST;
-_pilot = _pil createUnit [[0,0,0],_grp,"this moveinDriver _helo"];
-_helo flyinheight _hei;
+  _helo setSlingLoad _cargo;
+  _grp setSpeedMode "Full";
+  _wp1 = _grp addWaypoint [_pla,-1];
+  _wp1 setWaypointType "UNHOOK";
+  _wp2 = _grp addWaypoint [_end,-1];
+  _wp2 setWaypointType "MOVE";
+  player moveInCargo _helo;
 
-_helo setSlingLoad _cargo;
-_grp setSpeedMode "Full";
-_wp1 = _grp addWaypoint [_pla,-1];
-_wp1 setWaypointType "UNHOOK";
-_wp2 = _grp addWaypoint [_end,-1];
-_wp2 setWaypointType "MOVE";
-player moveInCargo _helo;
-
-WaitUntil {_helo distance _end < 150};
-deletevehicle (driver _helo);
-deletevehicle _helo;
-player setPos getPos  _end;
+  WaitUntil {_helo distance _end < 150};
+  deletevehicle (driver _helo);
+  deletevehicle _helo;
+  player setPos getPos  _end;
+};
