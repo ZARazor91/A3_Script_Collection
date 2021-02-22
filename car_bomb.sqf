@@ -1,6 +1,6 @@
 // =====================================================
 //  Car Bomb Script  
-//  Version: 1.01
+//  Version: 1.02
 //  Author: ZARazor91 (zarazor91@hotmail.de)
 // -----------------------------------------------------
 //  Required parameters:
