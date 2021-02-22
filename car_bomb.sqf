@@ -23,5 +23,5 @@ While {_timer != 0} do {
 	Sleep 1;
 };
 
-If (player in (crew _vehicle) && "text" in _this) then {hintSilent "0"};
+If (player in (crew _vehicle) && "text" in _this) then {hintSilent "Boom"};
 If (isServer && alive _vehicle) then {"Bo_GBU12_LGB" createVehicle getPos _vehicle};
