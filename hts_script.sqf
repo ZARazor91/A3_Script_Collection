@@ -1,7 +1,7 @@
 // ================================================================================================
 //  Helicopter Transport Script
 //  Version: 1.11
-//  Author: ZARazor91 (zarazor91@hotmail.de)
+//  Author: ZARazor91 (zarazor91@gmail.com)
 // ------------------------------------------------------------------------------------------------
 //  Required parameters:
 //    helicopter       = Type of the helicopter.
