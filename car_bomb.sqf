@@ -1,7 +1,7 @@
 // =====================================================
 //  Car Bomb Script  
 //  Version: 1.02
-//  Author: ZARazor91 (zarazor91@hgmail.com)
+//  Author: ZARazor91 (zarazor91@gmail.com)
 // -----------------------------------------------------
 //  Required parameters:
 //    vehicle  = Vehicle with the bomb
